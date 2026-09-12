@@ -1,0 +1,23 @@
+{
+  "name": "hirecore-ats",
+  "version": "1.0.0",
+  "description": "HireCore - ATS Candidate Tracking System refactored with State, Observer, Command and Memento patterns",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "tsc && node dist/index.js"
+  },
+  "keywords": [
+    "design-patterns",
+    "state",
+    "observer",
+    "command",
+    "memento",
+    "typescript"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}
