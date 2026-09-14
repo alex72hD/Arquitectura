@@ -36,7 +36,7 @@ console.log("\n--- SIMULACION DE ERROR Y DESHACER (UNDO CON AUDITORIA) ---");
 gestor.avanzarEstado(candidato, new Rechazado(), "asistente.rrhh");
 console.log("Estado actual tras error accidental:", candidato.obtenerEstado());
 
-gestor.deshacerUltimaTransicion();
+gestor.deshacerUltimaTransicion(candidato);
 console.log("Estado restaurado con undo:", candidato.obtenerEstado());
 
 console.log("\n--- CULMINACION DEL PROCESO ---");
@@ -52,7 +52,7 @@ try {
 }
 
 console.log("\n--- HISTORIAL DE AUDITORIA ---");
-const historial = gestor.obtenerHistorial().obtenerHistorial();
+const historial = candidato.obtenerHistorial().obtenerHistorial();
 for (const registro of historial) {
   console.log(`[${registro.fecha.toISOString()}] Accion realizada por: ${registro.usuario}`);
 }

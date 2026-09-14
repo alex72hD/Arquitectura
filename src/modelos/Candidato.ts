@@ -2,17 +2,25 @@ import { IEstado } from "../estados/IEstado";
 import { IObservador } from "../observadores/IObservador";
 import { Notificacion } from "../observadores/Notificacion";
 import { CandidatoMemento } from "../memento/CandidatoMemento";
+import { HistorialComandos } from "../comandos/HistorialComandos";
 
 export class Candidato {
   public nombre: string;
   public estadoActual: IEstado;
   public reclutadorEmail: string;
   private observadores: IObservador[] = [];
+  private historial: HistorialComandos;
 
-  constructor(nombre: string, estadoInicial: IEstado, reclutadorEmail: string) {
+  constructor(
+    nombre: string,
+    estadoInicial: IEstado,
+    reclutadorEmail: string,
+    historial: HistorialComandos = new HistorialComandos()
+  ) {
     this.nombre = nombre;
     this.estadoActual = estadoInicial;
     this.reclutadorEmail = reclutadorEmail;
+    this.historial = historial;
   }
 
   public obtenerEstado(): string {
@@ -69,5 +77,9 @@ export class Candidato {
     );
 
     this.notificarObservadores(evento);
+  }
+
+  public obtenerHistorial(): HistorialComandos {
+    return this.historial;
   }
 }
