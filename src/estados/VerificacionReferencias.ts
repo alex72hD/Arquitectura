@@ -5,7 +5,7 @@ export class VerificacionReferencias implements IEstado {
   public nombre = "VERIFICACION_REFERENCIAS";
 
   public transicionesPermitidas(): string[] {
-    return ["Contratado", "Rechazado"];
+    return ["CONTRATADO", "RECHAZADO"];
   }
 
   public puedeTransicionarA(nuevoEstado: string): boolean {

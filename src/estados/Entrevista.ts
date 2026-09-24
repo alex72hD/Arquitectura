@@ -5,7 +5,7 @@ export class Entrevista implements IEstado {
   public nombre  = "ENTREVISTA";
 
   public transicionesPermitidas(): string[] {
-    return ["PruebaTecnica", "Rechazado"];
+    return ["PRUEBA_TECNICA", "RECHAZADO"];
   }
 
   public puedeTransicionarA(nuevoEstado: string): boolean {
