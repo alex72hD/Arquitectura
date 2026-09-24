@@ -1,5 +1,5 @@
 export interface IEstado {
   nombre: string;
-  transicionesPermitidas(): IEstado[];
-  puedeTransicionarA(estado: IEstado): boolean;
+  transicionesPermitidas(): string[];
+  puedeTransicionarA(nuevoEstado: string): boolean;
 }

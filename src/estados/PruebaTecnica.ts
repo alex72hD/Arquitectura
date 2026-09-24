@@ -1,17 +1,14 @@
 import { IEstado } from "./IEstado";
-import { Oferta } from "./Oferta";
-import { Rechazado } from "./Rechazado";
+
 
 export class PruebaTecnica implements IEstado {
-  public nombre: string = "PRUEBA_TECNICA";
+  public nombre = "PRUEBA_TECNICA";
 
-  public transicionesPermitidas(): IEstado[] {
-    return [new Oferta(), new Rechazado()];
+  public transicionesPermitidas(): string[] {
+    return ["OFERTA", "RECHAZADO"];
   }
 
-  public puedeTransicionarA(estado: IEstado): boolean {
-    return this.transicionesPermitidas().some(
-      (permitido) => permitido.nombre === estado.nombre
-    );
+  public puedeTransicionarA(nuevoEstado: string): boolean {
+    return this.transicionesPermitidas().includes(nuevoEstado);
   }
 }

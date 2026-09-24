@@ -1,17 +1,14 @@
 import { IEstado } from "./IEstado";
-import { Contratado } from "./Contratado";
-import { Rechazado } from "./Rechazado";
+
 
 export class VerificacionReferencias implements IEstado {
-  public nombre: string = "VERIFICACION_REFERENCIAS";
+  public nombre = "VERIFICACION_REFERENCIAS";
 
-  public transicionesPermitidas(): IEstado[] {
-    return [new Contratado(), new Rechazado()];
+  public transicionesPermitidas(): string[] {
+    return ["Contratado", "Rechazado"];
   }
 
-  public puedeTransicionarA(estado: IEstado): boolean {
-    return this.transicionesPermitidas().some(
-      (permitido) => permitido.nombre === estado.nombre
-    );
+  public puedeTransicionarA(nuevoEstado: string): boolean {
+    return this.transicionesPermitidas().includes(nuevoEstado);
   }
 }

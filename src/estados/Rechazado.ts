@@ -1,13 +1,13 @@
 import { IEstado } from "./IEstado";
 
 export class Rechazado implements IEstado {
-  public nombre: string = "RECHAZADO";
+  public nombre = "RECHAZADO";
 
-  public transicionesPermitidas(): IEstado[] {
+  public transicionesPermitidas(): string[] {
     return [];
   }
 
-  public puedeTransicionarA(estado: IEstado): boolean {
+  public puedeTransicionarA(nuevoEstado: string): boolean {
     return false;
   }
 }
